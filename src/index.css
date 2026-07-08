@@ -1,0 +1,9 @@
+.study-name {
+  margin: 0 12px;
+}
+
+.study-name.completed {
+  color: red;
+  text-decoration: line-through;
+  opacity: 0.6;
+}
