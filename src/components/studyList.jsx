@@ -1,11 +1,15 @@
-function StudyList({ studies, handleRemoveStudy }) {
+import StudyItem from "./StudyItem";
+
+function StudyList({ studies, handleRemoveStudy, handleToggleCompleted }) {
   return (
     <ul>
       {studies.map((item) => (
-        <li key={item.id}>
-          {item.name}
-          <button onClick={() => handleRemoveStudy(item.id)}>Remover</button>
-        </li>
+        <StudyItem
+          key={item.id}
+          item={item}
+          handleRemoveStudy={handleRemoveStudy}
+          handleToggleCompleted={handleToggleCompleted}
+        />
       ))}
     </ul>
   );

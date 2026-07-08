@@ -55,7 +55,11 @@ function App() {
           handleAddStudy={handleAddStudy}
         />
 
-        <StudyList handleRemoveStudy={handleRemoveStudy} studies={studies} />
+        <StudyList
+          handleRemoveStudy={handleRemoveStudy}
+          studies={studies}
+          handleToggleCompleted={handleToggleCompleted}
+        />
       </main>
     </>
   );
