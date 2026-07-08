@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StudyForm from "./components/studyForm";
 import StudyList from "./components/studyList";
 
 function App() {
-  const [studies, setStudies] = useState([]);
+  const [studies, setStudies] = useState(() => {
+    const savedStudies = localStorage.getItem("studies");
+
+    if (savedStudies) {
+      return JSON.parse(savedStudies);
+    }
+
+    return [];
+  });
+
   const [study, setStudy] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("studies", JSON.stringify(studies));
+  }, [studies]);
 
   function handleChange(event) {
     setStudy(event.target.value);
