@@ -6,6 +6,20 @@ function App() {
   const [studies, setStudies] = useState([]);
   const [study, setStudy] = useState("");
 
+  function handleToggleCompleted(id) {
+    setStudies(
+      studies.map((studyItem) => {
+        if (studyItem.id === id)
+          return {
+            ...studyItem,
+            completed: !studyItem.completed,
+          };
+
+        return studyItem;
+      }),
+    );
+  }
+
   function handleChange(event) {
     setStudy(event.target.value);
   }
@@ -42,7 +56,11 @@ function App() {
           handleAddStudy={handleAddStudy}
         />
 
-        <StudyList handleRemoveStudy={handleRemoveStudy} studies={studies} />
+        <StudyList
+          handleRemoveStudy={handleRemoveStudy}
+          studies={studies}
+          handleToggleCompleted={handleToggleCompleted}
+        />
       </main>
     </>
   );
