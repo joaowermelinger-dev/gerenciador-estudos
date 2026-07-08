@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import StudyForm from "./components/studyForm";
-import StudyList from "./components/studyList";
+import StudyForm from "./components/StudyForm";
+import StudyList from "./components/StudyList";
+import "./index.css";
 
 function App() {
   const [studies, setStudies] = useState(() => {
